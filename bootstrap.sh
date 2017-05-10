@@ -30,7 +30,7 @@ echo "${VHOST}" > /etc/apache2/sites-available/000-default.conf
 sudo apt-get install -y libapache2-mod-php php-mcrypt php-mysql
 
 # Update dir.conf to have index.php first
-AMODS=$(car <<EOF
+AMODS=$(cat <<EOF
 <IfModule mod_dir.c>
     DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 </IfModule>
