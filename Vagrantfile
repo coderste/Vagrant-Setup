@@ -17,8 +17,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Share an additional folder to the guest VM. The first argument is the path on the host to the actual folder.
   # The second argument is the path on the guest to mount the folder.
   # Also exclude our git file from uploading
-  config.vm.synced_folder "./", "/var/www/html/", :mount_options => ["dmode=777", "fmode=666"], type: "rsync",
-    rsync__exclude: ".git/"
+  config.vm.synced_folder "./", "/var/www/html", type: "rsync",
+    rsync__exclude: [".git/", "node_modules/"],
+    rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "--delete", "-z"],
+    :mount_options => ["dmode=777","fmode=666"]
 
   config.vm.provider "virtualbox" do |vb|
     #   # Display the VirtualBox GUI when booting the machine
