@@ -44,8 +44,5 @@ sudo a2enmod rewrite
 # Restart Apache because of enabling rewrite
 sudo service apache2 restart
 
-# Removed Apaches Default File
-sudo rm "/var/www/html/index.html"
-
 # Final Feedback
 echo "Finished Installing and Setting Up Apache, MySQL and PHP"
